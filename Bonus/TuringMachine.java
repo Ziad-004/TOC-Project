@@ -3,6 +3,7 @@ package Bonus;
 import java.util.*;
 
 
+
 /**
  * TuringMachine class represents a complete Turing Machine
  * A TM is more powerful than DFAs/NFAs as it can both read and write to its tape
@@ -20,7 +21,7 @@ class TuringMachine {
     
     /**
      * Creates an empty Turing Machine
-     * Uses '_' as the blank symbol
+     * Uses '#' as the blank symbol
      */
     public TuringMachine() {
         this.states = new HashSet<>();
@@ -28,7 +29,7 @@ class TuringMachine {
         this.tapeAlphabet = new HashSet<>();
         this.transitions = new ArrayList<>();
         this.acceptStates = new HashSet<>();
-        this.blankSymbol = '_';
+        this.blankSymbol = '#';
     }
     
     /**
@@ -188,7 +189,7 @@ class TuringMachine {
     
     /**
      * Prints human-readable representation of the TM structure
-     * Shows states, alphabets, and number of transitions
+     * Shows states, alphabets, and transitions
      */
     public void printTM() {
         System.out.println("=== Turing Machine Structure ===");
@@ -197,7 +198,10 @@ class TuringMachine {
         System.out.println("Start State: " + startState);
         System.out.println("Accept States: " + acceptStates);
         System.out.println("Reject State: " + rejectState);
-        System.out.println("Number of Transitions: " + transitions.size());
+        System.out.println("\nTransitions:");
+        for (TMTransition transition : transitions) {
+            System.out.println(transition.toString());
+        }
         System.out.println();
     }
 }

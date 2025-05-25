@@ -32,7 +32,7 @@ class DFAToTuringMachine {
             tm.addInputSymbol(symbol);
             tm.addTapeSymbol(symbol);
         }
-        tm.addTapeSymbol('_');
+        tm.addTapeSymbol('#');
         
         tm.setStartState("q" + dfa.getStartState().getId());
         
@@ -51,12 +51,12 @@ class DFAToTuringMachine {
             
             if (state.isAccepting()) {
                 TMTransition blankTransition = new TMTransition(
-                    stateName, '_', stateName, '_', 'R' 
+                    stateName, '#', stateName, '#', 'R' 
                 );
                 tm.addTransition(blankTransition);
             } else {
                 TMTransition blankTransition = new TMTransition(
-                    stateName, '_', "qReject", '_', 'R'
+                    stateName, '#', "qReject", '#', 'R'
                 );
                 tm.addTransition(blankTransition);
             }
